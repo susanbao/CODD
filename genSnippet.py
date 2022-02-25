@@ -108,7 +108,7 @@ def transformPts(transform, pts, inverse=False):
     #perform transformation
     mat = transform.get_inverse_matrix() if inverse else transform.get_matrix()
     mat = np.array(mat)
-    ptst = pts @ mat.T
+    ptst = np.dot(pts, mat.T)
 
     #merge intensity back
     ptst = np.concatenate([ptst[:,:3],intensity], axis=1)
